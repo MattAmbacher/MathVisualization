@@ -57,7 +57,7 @@ def ani_frame(freq, pow_series, maximum_scale, width):
 	plt.xlim(0,8000)
 	plt.ylim(0, maximum_scale)
 	plt.xlabel('Frequency (Hz)')
-	plt.title('Beautiful Mess - Jason Mraz')
+	plt.title('Call Me Pathetic - Stoker')
 	plt.ylabel('Power')
 	plt.setp(l, linewidth=2.0)
 	frame.axes.get_yaxis().set_ticks([])
@@ -69,11 +69,11 @@ def ani_frame(freq, pow_series, maximum_scale, width):
 	ani = animation.FuncAnimation(fig, update_img, pow_series.shape[0], fargs=(freq,r_pow_series,  l, frame),interval=50)
 	writer = animation.writers['ffmpeg'](fps=30)
 
-	ani.save('beautifulmess.mp4', writer = writer, dpi=100)
+	ani.save('stoker.mp4', writer = writer, dpi=100)
 	return ani
 
 if __name__ == '__main__':
-	song, rate = read_song('beautifulmess.wav')
+	song, rate = read_song('stoker.wav')
 	width = 3
 	dummy_freq, dummy_spec = process_song(song, rate, 10*60, 0)
 	dummy_freq, dummy_pow, width, maximum_scale = integrate_power(dummy_freq, dummy_spec, width)
